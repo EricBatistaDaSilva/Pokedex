@@ -27,14 +27,14 @@ export function Home() {
         })}
       </div>
 
-      <div className="PaginationComponent">
-        <button onClick={prevPage}>
+      <div className="paginationComponent">
+        <button onClick={prevPage} disabled={page <= 1}>
           &lt; Anterior
         </button>
 
-        <span>{String(page).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}</span>
+        <span className="boxNumberPage">{String(page).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}</span>
 
-        <button onClick={nextPage}>
+        <button onClick={nextPage} disabled={page >= totalPages}>
           Próxima &gt;
         </button>
       </div>
