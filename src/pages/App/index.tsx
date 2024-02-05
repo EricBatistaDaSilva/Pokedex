@@ -6,13 +6,12 @@ import { Footer } from "../../components/Footer";
 export function App() {
   return (
     <Container>
-      <Header/>
+      <Header />
 
-      <main>
-        <Outlet />
-      </main>
+      {/* outlet is main */}
+      <Outlet />
 
-      <Footer/>
+      <Footer />
     </Container>
   );
 }

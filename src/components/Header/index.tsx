@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Container } from "./styles";
+import { Container } from "./style";
 import pokemonLogo from "../../assets/pokemon-logo.png";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -21,23 +21,25 @@ export function Header() {
     navigate(`/search?q=${data.inputSearch}`);
     reset();
   };
+
   return (
     <Container>
       <Link to={"/"}>
-        <img src={pokemonLogo} alt="Logo com o texto pokemon" />
+        <img src={pokemonLogo} alt="logo com texto pokemon" />
       </Link>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <section>
           <label htmlFor="inputSearch" className="srOnly">
-            Buscar pokémon
+            Pesquisar Pokémon
           </label>
+
           <input
             type="text"
             id="inputSearch"
-            placeholder="Buscar pokémon"
+            placeholder="Pesquisar Pokémon"
             {...register("inputSearch", {
-              required: "Escreva o nome do pokémon",
+              required: "Preencha o nome do Pokémon",
             })}
           />
           <span className="inputError">{errors.inputSearch?.message}</span>

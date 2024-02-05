@@ -15,13 +15,11 @@ export function useQueryPokemonPage() {
     const offset = (page - 1) * limit;
     const { data } = await API.get(`/pokemon?limit=${limit}&offset=${offset}`);
 
-    const pokemonPromises = data.results.map(
-      async (pokemon: { url: string }) => {
-        const response = await fetch(pokemon.url);
-        const data = await response.json();
-        return data;
-      }
-    );
+    const pokemonPromises = data.results.map(async (pokemon: { url: string }) => {
+      const response = await fetch(pokemon.url);
+      const data = await response.json();
+      return data;
+    });
 
     const pokemonData = await Promise.all(pokemonPromises);
 
@@ -31,6 +29,7 @@ export function useQueryPokemonPage() {
     if (totalPages != totalPagesAPI) {
       setTotalPages(totalPagesAPI);
     }
+
     return pokemonData as Pokemon[];
   }
 
@@ -46,7 +45,7 @@ export function useQueryPokemonPage() {
 
   const query = useQuery({
     queryKey: ["getPokemonPage", page, limit],
-    queryFn: () => getPokemonPage({ limit, page }),
+    queryFn: () => getPokemonPage({ page, limit }),
   });
 
   return {

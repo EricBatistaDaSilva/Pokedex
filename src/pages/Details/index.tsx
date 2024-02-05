@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Container } from "./styles";
+import { Container } from "./style";
 import { useQueryPokemonDetails } from "../../hooks/useQueryPokemonDetails";
 import { useEffect } from "react";
 
@@ -19,12 +19,12 @@ export function Details() {
   return (
     <Container>
       {isLoading && <span className="feedbackLoading">Loading...</span>}
-      {!isLoading && error && <span className="feedbackLoading">error...</span>}
+      {!isLoading && error && <span className="feedbackLoading">Error...</span>}
 
       {data && (
         <div className="boxDetails">
           <button onClick={() => navigate(-1)} className="buttonBackPage">
-            &lt; Voltar
+            &lt; voltar
           </button>
 
           <div className="pokemonImage">
