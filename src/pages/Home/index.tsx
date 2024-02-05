@@ -11,8 +11,8 @@ export function Home() {
 
   return (
     <Container>
-      <h1>{"Bem vindo(a) à Pokédex do Reprograma Jucás"}</h1>
-      {isLoading && <span className="feedbackLoading">Loading...</span>}
+      <h1>{"Bem vindo(a) à sua nova Pokédex"}</h1>
+      {isLoading && <span className="feedbackLoading">Buscando...</span>}
       {!isLoading && error && <span className="feedbackLoading">Error...</span>}
 
       <div className="gridCards">
