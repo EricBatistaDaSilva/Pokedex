@@ -37,7 +37,7 @@ export function Header() {
           <input
             type="text"
             id="inputSearch"
-            placeholder="Pesquisar Pokémon"
+            placeholder="Buscar Pokémon"
             {...register("inputSearch", {
               required: "Preencha o nome do Pokémon",
             })}
@@ -45,7 +45,7 @@ export function Header() {
           <span className="inputError">{errors.inputSearch?.message}</span>
         </section>
 
-        <button type="submit">Pesquisar</button>
+        <button type="submit">Buscar</button>
       </form>
     </Container>
   );
